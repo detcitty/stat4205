@@ -28,22 +28,27 @@ UN11 dataframe
 ```{r}
 
 model6.6 <- lm(lifeExpF ~ 1, data=UN11)
-model6.7 <- lm(lifeExpE ~ group,  data=UN11)
+model6.7 <- lm(lifeExpF ~ group,  data=UN11)
 
-model6.8 <- lm(lifeExpE ~ log(ppgdp),  data=UN11)
-model6.9 <- lm(lifeExpE ~ group + log(ppgdp),  data=UN11)
-model6.10 <- lm(lifeExpE ~ group + log(ppgdp) + group:log(ppgdp),  data=UN11)
+
 
 summary(model6.6)
 
 summary(model6.7)
+
+anova(model6.6, model6.7)
 ```
 
 #### Problem 6.2
 <!--- No model between (6.7) vs (6.8) --->
 ```{r}
-model6.7 <- lm(lifeExpE ~ group,  data=UN11)
-model6.8 <- lm(lifeExpE ~ log(ppgdp),  data=UN11)
+model6.7 <- lm(lifeExpF ~ group,  data=UN11)
+model6.8 <- lm(lifeExpF ~ log(ppgdp),  data=UN11)
+
+summary(model6.7)
+summary(model6.8)
+
+anova(model6.7, model6.8)
 ```
 
 
@@ -54,6 +59,13 @@ model6.8 <- lm(lifeExpE ~ log(ppgdp),  data=UN11)
 model6.7 <- lm(lifeExpF ~ group,  data=UN11)
 model6.9 <- lm(lifeExpF ~ group + log(ppgdp),  data=UN11)
 
+summary(model6.7)
+summary(model6.9)
+
+anova(model6.7, model6.9)
+
+anova(model6.9, model6.7)
+
 ```
 
 
@@ -63,6 +75,9 @@ UN11
 ```{r}
 nullHyp <- lm(lifeExpF ~ log(ppgdp) + group:log(ppgdp), data=UN11)
 alterHyp <- lm(lifeExpF ~ group + log(ppgdp) + group:log(ppgdp), data=UN11)
+
+summary(nullHyp)
+summary(alterHyp)
 ```
 
 
@@ -72,6 +87,8 @@ alterHyp <- lm(lifeExpF ~ group + log(ppgdp) + group:log(ppgdp), data=UN11)
 UN11
 ```{r}
 paraReg <- lm(lifeExpF ~ group + log(ppgdp), data = UN11)
+summary(paraReg)$coeff
+summary(paraReg)
 ```
 
 
@@ -80,8 +97,13 @@ paraReg <- lm(lifeExpF ~ group + log(ppgdp), data = UN11)
 <!--- --->
 fuel2001
 ```{r}
-model6.22 <- lm(fuel ~ Tax + Dlic + Income + log(Miles), data=fuel2001)
-model6.23 <- lm(fuel ~ log(Miles) + Income + Dlic + Tax, data=fuel2001)
+model6.22 <- lm(FuelC ~ Tax + Drivers + Income + log(Miles), data=fuel2001)
+model6.23 <- lm(FuelC~ log(Miles) + Income + Drivers + Tax, data=fuel2001)
+
+summary(model6.22)
+summary(model6.23)
+
+anova(model6.22, model6.23)
 ```
 
 
@@ -90,6 +112,7 @@ model6.23 <- lm(fuel ~ log(Miles) + Income + Dlic + Tax, data=fuel2001)
 MinnLand
 ```{r}
 model <- lm(log(acrePrice) ~ year, data=MinnLand)
+summary(model)
 ```
 
 
@@ -98,6 +121,6 @@ model <- lm(log(acrePrice) ~ year, data=MinnLand)
 <!--- Windmill data --->
 wm2
 ```{r}
-
+plot(wm2)
 ```
 
