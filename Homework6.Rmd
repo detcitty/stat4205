@@ -44,14 +44,31 @@ detach(mile)
 ```
 
 
+<!--- Chapter 8: Transformations
+--->
+
 #### Problem 8.1
 <!--- --->
+```{r}
+attach(baeskel)
+detach(baeskel)
+
+```
 
 
 #### Problem 8.2
 <!--- --->
+```{r}
+attach(stopping)
+detach(stopping)
+```
+
 
 #### Problem 8.3
-<!--- --->
+<!--- Automatic Choice of Transformation --->
+```{r}
+attach(water)
+detach(water)
+```
 
 
