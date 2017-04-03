@@ -1,0 +1,91 @@
+---
+title: "Homework 5"
+author: "Devin Etcitty"
+course: "STAT4205"
+#date: "3/31/2017"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### STAT4205
+#### dce2108
+
+
+```{r message = FALSE, warning = FALSE}
+library(alr4)
+```
+
+<!--- --->
+
+#### Problem 6.1
+<!--- F-test multiple models --->
+```{r}
+attach(UN11)
+detach(UN11)
+```
+
+#### Problem 6.2
+<!--- No model between (6.7) vs (6.8) --->
+```{r}
+attach(UN11)
+detach(UN11)
+```
+
+
+
+#### Problem 6.3
+<!--- --->
+```{r}
+attach(UN11)
+detach(UN11)
+```
+
+
+#### Problem 6.4
+<!--- --->
+```{r}
+attach(UN11)
+detach(UN11)
+```
+
+
+
+#### Problem 6.5
+<!--- --->
+```{r}
+attach(UN11)
+detach(UN11)
+```
+
+
+
+#### Problem 6.7
+<!--- --->
+```{r}
+attach(fuel2001)
+
+detach(fuel2001)
+```
+
+
+#### Problem 6.14
+<!--- Testing for lack-of-fit --->
+```{r}
+attach(MinnLand)
+detach(MinnLand)
+```
+
+
+
+#### Problem 6.18
+<!--- Windmill data --->
+```{r}
+attach(wm2)
+detach(wm2)
+```
+

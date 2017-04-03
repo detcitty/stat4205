@@ -1,0 +1,57 @@
+---
+title: "Homework 6"
+author: "Devin Etcitty"
+date: "4/2/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### STAT4205
+#### dce2108
+
+
+```{r message = FALSE, warning = FALSE}
+library(alr4)
+```
+
+<!--- Chapter 7: Variances
+--->
+#### Problem 7.6
+<!--- Quadtratic Regression --->
+```{r}
+attach(stopping)
+detach(stopping)
+```
+
+
+#### Problem 7.8
+<!--- Jevons's gold coins--->
+```{r}
+attach(jevons)
+detach(jevons)
+```
+
+
+
+#### Problem 7.12
+<!--- Regression Modeling --->
+```{r}
+attach(mile)
+detach(mile)
+```
+
+
+#### Problem 8.1
+<!--- --->
+
+
+#### Problem 8.2
+<!--- --->
+
+#### Problem 8.3
+<!--- --->
+
+

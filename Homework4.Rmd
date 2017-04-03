@@ -1,0 +1,73 @@
+---
+title: "Homework 4"
+author: "Devin Etcitty"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+#### STAT4205
+#### dce2108
+
+
+```{r message = FALSE, warning = FALSE}
+library(alr4)
+```
+
+
+#### Problem 3.1
+<!--- Localities --->
+```{r}
+attach(UN11)
+
+detach(UN11)
+```
+
+
+#### Problem 3.2
+<!--- Added-variable plots --->
+```{r}
+attach(UN11)
+
+detach(UN11)
+```
+
+
+#### Problem 4.10
+
+<!--- (Bivariate Normal Distribution) --->
+
+
+#### Problem 5.16
+<!--- Gothic and Romanesque Cathedrals --->
+```{r}
+attach(cathedral)
+
+detach(cathedral)
+```
+
+
+#### Problem 5.17
+<!--- Sex discrimination --->
+```{r}
+attach(salary)
+
+detach(salary)
+
+```
+
+
+#### Problem 5.18
+<!--- Change codes --->
+```{r}
+attach(salary)
+
+detach(salary)
+
+```
+

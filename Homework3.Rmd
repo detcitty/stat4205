@@ -1,0 +1,59 @@
+---
+title: "Homework 3"
+author: "Devin Etcitty"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### STAT4205
+#### dce2108
+
+
+
+```{r message = FALSE, warning = FALSE}
+library(alr4)
+```
+
+#### Problem 3.3
+<!--- Berkeley Guidance Study --->
+```{r}
+attach(BGSgirls)
+
+detach(BGSgirls)
+```
+
+
+#### Problem 3.4
+<!--- Mean function --->
+
+#### Problem 3.5
+<!--- Regression mean function: Double variable --->
+
+
+
+#### Problem 3.6
+<!--- Correlation Matrix --->
+```{r}
+attach(water)
+
+detach(water)
+```
+
+
+#### Problem 4.1
+<!--- Orthogonal polynomials --->
+```{r}
+attach(BGSgirls)
+
+detach(BGSgirls)
+```
+
+
+
+#### Problem 4.9
+
+
+
