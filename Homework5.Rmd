@@ -24,16 +24,26 @@ library(alr4)
 
 #### Problem 6.1
 <!--- F-test multiple models --->
+UN11 dataframe
 ```{r}
-attach(UN11)
-detach(UN11)
+
+model6.6 <- lm(lifeExpF ~ 1, data=UN11)
+model6.7 <- lm(lifeExpE ~ group,  data=UN11)
+
+model6.8 <- lm(lifeExpE ~ log(ppgdp),  data=UN11)
+model6.9 <- lm(lifeExpE ~ group + log(ppgdp),  data=UN11)
+model6.10 <- lm(lifeExpE ~ group + log(ppgdp) + group:log(ppgdp),  data=UN11)
+
+summary(model6.6)
+
+summary(model6.7)
 ```
 
 #### Problem 6.2
 <!--- No model between (6.7) vs (6.8) --->
 ```{r}
-attach(UN11)
-detach(UN11)
+model6.7 <- lm(lifeExpE ~ group,  data=UN11)
+model6.8 <- lm(lifeExpE ~ log(ppgdp),  data=UN11)
 ```
 
 
@@ -41,51 +51,53 @@ detach(UN11)
 #### Problem 6.3
 <!--- --->
 ```{r}
-attach(UN11)
-detach(UN11)
+model6.7 <- lm(lifeExpF ~ group,  data=UN11)
+model6.9 <- lm(lifeExpF ~ group + log(ppgdp),  data=UN11)
+
 ```
 
 
 #### Problem 6.4
 <!--- --->
+UN11
 ```{r}
-attach(UN11)
-detach(UN11)
+nullHyp <- lm(lifeExpF ~ log(ppgdp) + group:log(ppgdp), data=UN11)
+alterHyp <- lm(lifeExpF ~ group + log(ppgdp) + group:log(ppgdp), data=UN11)
 ```
 
 
 
 #### Problem 6.5
 <!--- --->
+UN11
 ```{r}
-attach(UN11)
-detach(UN11)
+paraReg <- lm(lifeExpF ~ group + log(ppgdp), data = UN11)
 ```
 
 
 
 #### Problem 6.7
 <!--- --->
+fuel2001
 ```{r}
-attach(fuel2001)
-
-detach(fuel2001)
+model6.22 <- lm(fuel ~ Tax + Dlic + Income + log(Miles), data=fuel2001)
+model6.23 <- lm(fuel ~ log(Miles) + Income + Dlic + Tax, data=fuel2001)
 ```
 
 
 #### Problem 6.14
 <!--- Testing for lack-of-fit --->
+MinnLand
 ```{r}
-attach(MinnLand)
-detach(MinnLand)
+model <- lm(log(acrePrice) ~ year, data=MinnLand)
 ```
 
 
 
 #### Problem 6.18
 <!--- Windmill data --->
+wm2
 ```{r}
-attach(wm2)
-detach(wm2)
+
 ```
 
