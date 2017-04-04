@@ -21,26 +21,26 @@ library(alr4)
 --->
 #### Problem 7.6
 <!--- Quadtratic Regression --->
+stopping dataframe
 ```{r}
-attach(stopping)
-detach(stopping)
+plot(stopping)
 ```
 
 
 #### Problem 7.8
 <!--- Jevons's gold coins--->
+jevons dataframe
 ```{r}
-attach(jevons)
-detach(jevons)
+plot(jevons)
 ```
 
 
 
 #### Problem 7.12
 <!--- Regression Modeling --->
+mile dataframe
 ```{r}
-attach(mile)
-detach(mile)
+plot(mile)
 ```
 
 
@@ -49,26 +49,25 @@ detach(mile)
 
 #### Problem 8.1
 <!--- --->
+baeskel dataframe
 ```{r}
-attach(baeskel)
-detach(baeskel)
-
+plot(baeskel)
 ```
 
 
 #### Problem 8.2
 <!--- --->
+stopping dataframe
 ```{r}
-attach(stopping)
-detach(stopping)
+plot(stopping)
 ```
 
 
 #### Problem 8.3
 <!--- Automatic Choice of Transformation --->
+water dataframe
 ```{r}
-attach(water)
-detach(water)
+plot(water)
 ```
 
 
