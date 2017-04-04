@@ -31,6 +31,10 @@ stopping
 plot(stopping)
 ```
 
+```{r}
+summary(stopping)
+```
+
 
 #### Problem 7.8
 <!--- Jevons's gold coins--->
@@ -45,6 +49,9 @@ jevons
 plot(jevons)
 ```
 
+```{r}
+summary(jevons)
+```
 
 
 #### Problem 7.12
@@ -58,6 +65,10 @@ mile
 
 ```{r}
 plot(mile)
+```
+
+```{r}
+summary(mile)
 ```
 
 
@@ -92,6 +103,11 @@ plot(stopping)
 ```
 
 
+```{r}
+summary(stopping)
+```
+
+
 #### Problem 8.3
 <!--- Automatic Choice of Transformation --->
 water dataframe
@@ -103,6 +119,10 @@ water
 
 ```{r}
 plot(water)
+```
+
+```{r}
+summary(water)
 ```
 
 
