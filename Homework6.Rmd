@@ -22,8 +22,24 @@ library(alr4)
 #### Problem 7.6
 <!--- Quadtratic Regression --->
 stopping dataframe
+
+
 ```{r}
-stopping
+dim(stopping)
+```
+
+```{r}
+names(stopping)
+```
+
+```{r}
+sapply(stopping, class)
+```
+
+
+
+```{r}
+head(stopping)
 ```
 
 
@@ -41,7 +57,21 @@ summary(stopping)
 jevons dataframe
 
 ```{r}
-jevons
+dim(jevons)
+```
+
+```{r}
+names(jevons)
+```
+
+```{r}
+sapply(jevons, class)
+```
+
+
+
+```{r}
+head(jevons)
 ```
 
 
@@ -59,7 +89,7 @@ summary(jevons)
 mile dataframe
 
 ```{r}
-mile
+head(mile)
 ```
 
 
@@ -80,7 +110,22 @@ summary(mile)
 baeskel dataframe
 
 ```{r}
-baeskel
+dim(baeskel)
+```
+
+```{r}
+names(baeskel)
+```
+
+
+```{r}
+sapply(baeskel, class)
+```
+
+
+
+```{r}
+head(baeskel)
 ```
 
 
@@ -94,7 +139,21 @@ plot(baeskel)
 stopping dataframe
 
 ```{r}
-stopping
+dim(stopping)
+```
+
+
+```{r}
+names(stopping)
+```
+
+```{r}
+sapply(stopping, class)
+```
+
+
+```{r}
+head(stopping)
 ```
 
 
@@ -113,7 +172,23 @@ summary(stopping)
 water dataframe
 
 ```{r}
-water
+dim(water)
+```
+
+
+```{r}
+names(water)
+```
+
+
+```{r}
+sapply(water, class)
+```
+
+
+
+```{r}
+head(water)
 ```
 
 
