@@ -15,11 +15,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r message = FALSE, warning = FALSE}
 library(alr4)
+library(ggplot2)
 ```
 
 <!--- Chapter 7: Variances
 --->
 #### Problem 7.6
+##### 7.6.1 - 7.6.4
 <!--- Quadtratic Regression --->
 stopping dataframe
 
@@ -46,6 +48,26 @@ head(stopping)
 ```{r}
 plot(stopping)
 ```
+
+
+```{r}
+ggplot(stopping, aes(Speed, Distance)) +
+  geom_point()
+```
+
+
+###### 7.6.1
+This graph supports a quadratic regression model because the graph has
+a curve and less linear.
+
+###### 7.6.2
+<!---- Constant variance  ----> 
+
+###### 7.6.3
+
+###### 7.6.4
+
+
 
 ```{r}
 summary(stopping)
@@ -78,6 +100,19 @@ head(jevons)
 ```{r}
 plot(jevons)
 ```
+
+```{r}
+ggplot(jevons, aes(Age, Weight)) +
+  geom_point()
+```
+
+
+
+```{r}
+ggplot(jevons, aes(Age, SD)) +
+  geom_point()
+```
+
 
 ```{r}
 summary(jevons)
