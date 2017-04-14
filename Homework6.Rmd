@@ -15,14 +15,63 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r message = FALSE, warning = FALSE}
 library(alr4)
+library(ggplot2)
 ```
 
 <!--- Chapter 7: Variances
 --->
 #### Problem 7.6
+##### 7.6.1 - 7.6.4
 <!--- Quadtratic Regression --->
+stopping dataframe
+
+
+```{r}
+dim(stopping)
+```
+
+```{r}
+names(stopping)
+```
+
+```{r}
+sapply(stopping, class)
+```
+
+
+
 ```{r}
 head(stopping)
+```
+
+
+```{r}
+plot(stopping)
+```
+
+
+```{r}
+ggplot(stopping, aes(Speed, Distance)) +
+  geom_point()
+```
+
+
+###### 7.6.1
+This graph supports a quadratic regression model because the graph has
+a curve and less linear.
+
+###### 7.6.2
+<!---- Constant variance  ----> 
+
+###### 7.6.3
+
+###### 7.6.4
+
+
+
+```{r}
+head(stopping)
+
 
 summary(stopping)
 ```
@@ -30,18 +79,66 @@ summary(stopping)
 
 #### Problem 7.8
 <!--- Jevons's gold coins--->
-```{r}
-head(jevons)
+jevons dataframe
 
-summary(jevons)
+```{r}
+dim(jevons)
+```
+
+```{r}
+names(jevons)
+```
+
+```{r}
+sapply(jevons, class)
 ```
 
 
 
+```{r}
+head(jevons)
+
+summary(jevons)
+
+```
+
+
+```{r}
+plot(jevons)
+```
+
+```{r}
+ggplot(jevons, aes(Age, Weight)) +
+  geom_point()
+```
+
+
+
+```{r}
+ggplot(jevons, aes(Age, SD)) +
+  geom_point()
+```
+
+
+```{r}
+summary(jevons)
+```
+
+
 #### Problem 7.12
 <!--- Regression Modeling --->
+mile dataframe
+
 ```{r}
 head(mile)
+```
+
+
+```{r}
+plot(mile)
+```
+
+```{r}
 
 summary(mile)
 ```
@@ -52,27 +149,95 @@ summary(mile)
 
 #### Problem 8.1
 <!--- --->
+baeskel dataframe
+
+```{r}
+dim(baeskel)
+```
+
+```{r}
+names(baeskel)
+```
+
+
+```{r}
+sapply(baeskel, class)
+```
+
+
 ```{r}
 head(baeskel)
+```
 
-summary(baeskel)
 
+```{r}
+plot(baeskel)
 ```
 
 
 #### Problem 8.2
 <!--- --->
+stopping dataframe
+
+```{r}
+dim(stopping)
+```
+
+
+```{r}
+names(stopping)
+```
+
+```{r}
+sapply(stopping, class)
+```
+
+
 ```{r}
 head(stopping)
+```
+
+
+```{r}
+plot(stopping)
+```
+
+
+```{r}
 summary(stopping)
 ```
 
 
 #### Problem 8.3
 <!--- Automatic Choice of Transformation --->
+water dataframe
+
+```{r}
+dim(water)
+```
+
+
+```{r}
+names(water)
+```
+
+
+```{r}
+sapply(water, class)
+```
+
+
+
 ```{r}
 head(water)
-summary(water)
+```
+
+
+```{r}
+plot(water)
+```
+
+```{r}
 ```
 
 
