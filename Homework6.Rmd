@@ -22,16 +22,18 @@ library(alr4)
 #### Problem 7.6
 <!--- Quadtratic Regression --->
 ```{r}
-attach(stopping)
-detach(stopping)
+head(stopping)
+
+summary(stopping)
 ```
 
 
 #### Problem 7.8
 <!--- Jevons's gold coins--->
 ```{r}
-attach(jevons)
-detach(jevons)
+head(jevons)
+
+summary(jevons)
 ```
 
 
@@ -39,8 +41,9 @@ detach(jevons)
 #### Problem 7.12
 <!--- Regression Modeling --->
 ```{r}
-attach(mile)
-detach(mile)
+head(mile)
+
+summary(mile)
 ```
 
 
@@ -50,8 +53,9 @@ detach(mile)
 #### Problem 8.1
 <!--- --->
 ```{r}
-attach(baeskel)
-detach(baeskel)
+head(baeskel)
+
+summary(baeskel)
 
 ```
 
@@ -59,16 +63,16 @@ detach(baeskel)
 #### Problem 8.2
 <!--- --->
 ```{r}
-attach(stopping)
-detach(stopping)
+head(stopping)
+summary(stopping)
 ```
 
 
 #### Problem 8.3
 <!--- Automatic Choice of Transformation --->
 ```{r}
-attach(water)
-detach(water)
+head(water)
+summary(water)
 ```
 
 
