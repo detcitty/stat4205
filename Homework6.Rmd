@@ -25,6 +25,10 @@ library(ggplot2)
 <!--- Quadtratic Regression --->
 stopping dataframe
 
+heteroscedastic
+homosecdastic
+
+What are theset erms?
 
 ```{r}
 dim(stopping)
@@ -238,6 +242,7 @@ plot(water)
 ```
 
 ```{r}
+
 ```
 
 
