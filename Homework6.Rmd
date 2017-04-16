@@ -16,6 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r message = FALSE, warning = FALSE}
 library(alr4)
 library(ggplot2)
+library(tidyverse)
 ```
 
 <!--- Chapter 7: Variances
