@@ -1,0 +1,60 @@
+---
+title: "Homework2"
+author: "Devin Etcitty"
+date: "4/15/2017"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### STAT4205
+#### dce2108
+
+```{r message = FALSE, warning = FALSE}
+library(alr4)
+library(ggplot2)
+```
+
+### Chapter 2
+
+##### Problem 2.20
+
+```{r}
+#plot(oldfaith)
+md <- loess('Interval ~ Duration', oldfaith)
+plot(oldfaith)
+#lines(predict(md) , col='red', lwd=2)
+```
+
+
+
+```{r}
+ggplot(oldfaith, aes(Duration, Interval)) +
+  #stat_summary(fun.data = mean_cl_normal) +
+  #geom_smooth(method="lm", formula="y~x") 
+  geom_smooth(method="lm") + 
+  geom_point()
+```
+
+
+
+###### 2.20.1
+```{r}
+
+```
+
+###### 2.20.2
+```{r}
+
+```
+
+
+
+###### 2.20.3
+```{r}
+
+```
+
+
