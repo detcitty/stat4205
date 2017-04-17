@@ -167,6 +167,20 @@ ggplot(jevons, aes(Age, SD)) +
 
 
 ```{r}
+model.1 <- lm(SD ~ Age, data=jevons)
+wts <- (nrow(jevons) * fitted(lm(abs(residuals(model.1)) ~ jevons$SD))^2) / (jevons$SD)^2
+model2 <- lm(SD ~ Age, data=jevons, weights=wts)
+
+plot(model2)
+```
+
+
+```{r}
+summary(model2)
+```
+
+
+```{r}
 summary(jevons)
 ```
 
@@ -189,6 +203,11 @@ plot(mile)
 summary(mile)
 ```
 
+```{r}
+ggplot(mile, aes(Year, Time, color=Gender)) +
+  geom_point() +
+  geom_smooth(method=)
+```
 
 
 
