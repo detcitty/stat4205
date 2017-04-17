@@ -1,0 +1,114 @@
+---
+title: "Practice"
+author: "Devin Etcitty"
+date: "4/16/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message = FALSE, warning = FALSE}
+library(alr4)
+library(ggplot2)
+library(tidyverse)
+library(plot3D)
+```
+
+
+#### Chapter 6
+
+Problem 1
+
+```{r}
+plot(cakes)
+```
+
+```{r}
+dim(cakes)
+```
+
+```{r}
+cakes
+```
+
+```{r}
+names(cakes)
+```
+
+
+
+```{r}
+sapply(cakes, class)
+```
+```{r}
+m1 <- lm (Y ~ block * X1, data = cakes)
+summary(m1)
+plot(m1)
+```
+
+```{r}
+m2 <- lm(Y ~ block + X1 + I(as.numeric(levels(block))[block]^2) + I(X1^2) + block:X1, data = cakes)
+summary(m2)
+plot(m2)
+```
+```{r}
+#persp(cakes$X1, cakes$X2, cakes$Y)
+```
+
+```{r}
+prob9 <- lm(Y ~ X1 + X2 + I(X1^2) + I(X2^2) +  X1:X2, data=cakes)
+summary(prob9)
+```
+```{r}
+prob6.1 <- lm(Y ~ X1, data = cakes)
+prob6.2 <- update(prob6.1, ~ . + X2)
+prob6.3 <- update(prob6.2, ~ . + I(X1^2))
+prob6.4 <- update(prob6.3, ~ . +I(X2^2))
+prob6.5 <- update(prob6.4, ~ . + X1:X2)
+
+```
+
+```{r}
+anova(prob6.1, prob6.2)
+```
+
+```{r}
+anova(prob6.1, prob6.2, prob6.3)
+```
+
+```{r}
+anova(prob6.5, prob6.4)
+```
+
+```{r}
+anova(prob6.4, prob6.5)
+```
+
+
+```{r}
+anova(prob6.5, prob6.4)
+```
+
+
+```{r}
+prob6.3.2 <- update(prob6.5, ~ . -I(X1^2))
+
+anova(prob6.3.2, prob6.5)
+```
+
+```{r}
+prob1 <- update(prob6.5, ~ . - X1)
+prob2 <- prob6.3.2
+prob3 <- prob6.4
+
+anova(prob1, prob2, prob3, prob6.5)
+```
+
+
+
+
+
+
+

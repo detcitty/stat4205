@@ -56,6 +56,32 @@ head(stopping)
 plot(stopping)
 ```
 
+```{r}
+qd <- lm(Distance ~ Speed + I(Speed^2),data=stopping)
+summary(qd)
+```
+```{r}
+p1 <- lm(Distance ~ poly(Speed, 2, raw=TRUE), data = stopping)
+summary(p1)
+```
+```{r}
+print(plot(Effect("Speed", p1)))
+```
+```{r}
+mod2 <- lm(Y ~ X1 + X2 + I(X1^2) + I(X2^2) +  X1:X2, data=cakes)
+summary(mod2)
+
+```
+
+
+
+```{r}
+z <- with(cakes, polym(X1, X2, degree=2, raw=TRUE))
+#summary(z)
+model.matrix(~ z)
+```
+
+
 
 ```{r}
 ggplot(stopping, aes(Speed, Distance)) +
