@@ -68,11 +68,24 @@ summary(p1)
 print(plot(Effect("Speed", p1)))
 ```
 ```{r}
+
 mod2 <- lm(Y ~ X1 + X2 + I(X1^2) + I(X2^2) +  X1:X2, data=cakes)
 summary(mod2)
 
 ```
+```{r}
+plot(mod2)
+```
 
+```{r}
+vcov(mod2)
+```
+```{r}
+sqrt(diag(vcov(mod2)))
+```
+```{r}
+summary(mod2)$coef
+```
 
 
 ```{r}
@@ -177,8 +190,9 @@ summary(mile)
 ```
 
 
-<!--- Chapter 8: Transformations
---->
+
+
+<!--- Chapter 8: Transformations --->
 
 #### Problem 8.1
 <!--- --->
