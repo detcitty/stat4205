@@ -1,0 +1,78 @@
+---
+title: "Homework7"
+author: "Devin Etcitty"
+date: "4/18/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+#### STAT4205
+#### dce2108
+
+
+```{r message = FALSE, warning = FALSE}
+library(alr4)
+library(ggplot2)
+library(tidyverse)
+```
+
+# Problem 9.3
+
+```{r}
+head(pipeline)
+```
+
+```{r}
+plot(pipeline)
+```
+
+```{r}
+labfield <- lm(Lab ~ Field, data=pipeline)
+lab.line <- labfield$coefficients
+lab.line
+plot(pipeline[1:2])
+abline(lab.line[1], lab.line[2])
+
+```
+```{r}
+m1.res <- labfield$residuals
+
+```
+
+
+
+
+```{r}
+fieldlab <- lm(Field ~ Lab, data=pipeline)
+field.line <- fieldlab$coefficients
+#field.line
+plot(pipeline[2:1])
+abline(field.line[1], field.line[2])
+
+```
+
+# Problem 9.8
+
+```{r}
+head(water)
+```
+```{r}
+plot(water)
+```
+
+
+# Problem 9.11
+
+
+```{r}
+head(fuel2001)
+```
+
+```{r}
+plot(fuel2001)
+```
+
