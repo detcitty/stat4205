@@ -55,6 +55,16 @@ abline(field.line[1], field.line[2])
 
 ```
 
+
+```{r}
+n <- dim(pipeline)[1]
+levs <- pf(99*c(.5), 2, n) - 1/n
+with(pipeline, dataEllipse(Lab, Field),
+     levels=levs - 1/n, xlim=c(-50, 200), ylim=c(-50, 120))
+```
+
+
+
 # Problem 9.8
 
 ```{r}
@@ -64,8 +74,37 @@ head(water)
 plot(water)
 ```
 
+The problem asks:
+
+"Draw residual plots for the mean function described in Problem 8.3.4 for the California water data, and comment on your results."
+
+"Test for curvature as a function of fitted values"
+
+Q: What is the model?
+
+log(BSAMM) ~ log(APMAM) + log(APSAB) + log(APSLAKE) + log(OPBPC) + log(OPRC) + log(OPSLAKE)
+
+```{r}
+prob9.3 <- lm(log(BSAAM) ~ log(APMAM) + log(APSAB) + log(APSLAKE) + log(OPBPC) + log(OPRC) + log(OPSLAKE), data = water)
+summary(prob9.3)
+```
+
+
+```{r}
+residualPlots(prob9.3)
+
+```
+
+```{r}
+resid <- prob9.3$residuals
+fitted <- prob9.3$fitted.values
+
+plot(fitted, resid)
+```
+
 
 # Problem 9.11
+
 
 
 ```{r}
@@ -74,5 +113,113 @@ head(fuel2001)
 
 ```{r}
 plot(fuel2001)
+```
+
+
+
+
+
+### Linear Model
+
+$$ 
+E(fuel | X) = B_0 + B_1 Tax + B_2 Dlic + B_3 Income + B_4 log(miles)
+$$ 
+
+
+
+#Extra Practice Problems
+==========
+
+# Problem 9.1
+
+```{r}
+head(Rpdata)
+```
+
+```{r}
+pairs(Rpdata)
+```
+
+The variables next to each other seem strongly correlated, except with x1 and y. x1 neighbors is x2. 
+
+
+```{r}
+ggplot(Rpdata, aes(x1, y)) +
+  geom_point() +
+  geom_smooth(method=lm)
+```
+
+
+```{r}
+ggplot(Rpdata, aes(x2, y)) +
+  geom_point() +
+  geom_smooth(method=lm)
+```
+
+
+
+```{r}
+ggplot(Rpdata, aes(x3, y)) +
+  geom_point() +
+  geom_smooth(method=lm)
+```
+
+
+```{r}
+ggplot(Rpdata, aes(x4, y)) +
+  geom_point() +
+  geom_smooth(method=lm)
+```
+
+
+```{r}
+ggplot(Rpdata, aes(x5, y)) +
+  geom_point() +
+  geom_smooth(method=lm)
+```
+
+```{r}
+ggplot(Rpdata, aes(x6, y)) +
+  geom_point() +
+  geom_smooth(method=lm)
+```
+
+
+
+
+```{r}
+pr9.1 <- lm(y ~ x1 + x2 + x3 + x4 + x5 + x6, data = Rpdata)
+summary(pr9.1)
+```
+
+
+All the p-values are signficant. This might mean that the model is wrong.
+
+```{r}
+pr9.1.1 <- lm(x1 ~ x2,  data = Rpdata)
+summary(pr9.1)
+```
+
+
+```{r}
+pr9.1.2 <- lm(x2 ~ x1,  data = Rpdata)
+summary(pr9.1.2)
+```
+
+
+```{r}
+plot(pr9.1)
+```
+
+
+```{r}
+resid <- pr9.1$residuals
+fitted <- pr9.1$fitted.values
+
+plot(fitted, resid)
+```
+
+```{r}
+residualPlots()
 ```
 
