@@ -116,6 +116,9 @@ plot(fuel2001)
 ```
 
 
+```{r}
+names(fuel2001)
+```
 
 
 
@@ -124,6 +127,110 @@ plot(fuel2001)
 $$ 
 E(fuel | X) = B_0 + B_1 Tax + B_2 Dlic + B_3 Income + B_4 log(miles)
 $$ 
+
+# Transform data
+
+```{r}
+fuel2001 <- transform(fuel2001,
+Dlic=1000 * Drivers/Pop,
+Fuel=1000 * FuelC/Pop)
+
+```
+
+
+```{r}
+model9.11 <- lm( Fuel ~ Tax + Dlic + Income + log(Miles), data=fuel2001)
+summary(model9.11)
+```
+
+```{r}
+residualPlots(model9.11)
+```
+
+
+
+```{r}
+hat_9.11 <- hatvalues(model9.11)
+hat_9.11
+```
+```{r}
+
+states <- c("AK", "NY", "HI", "WY", "DC")
+hat_fivestates <- hat_9.11[states]
+hat_fivestates
+```
+
+
+```{r}
+fuel <- c(514.279, 374.164, 426.349, 842.792, 317.492)
+ehat_fuel <- c(-163.145, -137.599, -102.409, 183.499, -49.452)
+hat_fuel <- c(0.256, 0.162, 0.206, 0.084, 0.415)
+states_resid <- model9.11$residuals[states]
+
+r_hat <-   ehat_fuel / ( states_resid * sqrt(1 - hat_fuel))
+
+
+r_hat
+n <- 51
+p_prime <- 5
+
+t <- r_hat * ((n - p_prime - 1) / (n - p_prime - r_hat^2))^(1/2)
+t
+
+
+D_i <- (1/p_prime) * r_hat^2 * (hat_fuel /(1 - hat_fuel) )
+names(D_i) <- states
+D_i
+```
+
+```{r}
+dl <- cooks.distance(model9.11)
+dl
+
+```
+```{r}
+r <- rstudent(model9.11)
+r
+```
+
+
+```{r}
+r.newModel <- r[states]
+dl.newModel <- dl[states]
+
+
+
+n <- 51
+p_prime <- 5
+
+t <- r.newModel * ((n - p_prime - 1) / (n - p_prime - r.newModel^2))^(1/2)
+t
+```
+
+```{r}
+r.newModel
+```
+
+```{r}
+dl.newModel
+```
+```{r}
+
+p.new <- 2*pt(-abs(t),df=n-1)
+
+p.adjust(p.new, method = "bonferroni")
+```
+
+```{r}
+outlierTest(model9.11)
+```
+
+Wyoming has the largest influence on the regression
+
+
+```{r}
+influenceIndexPlot(model9.11)
+```
 
 
 
@@ -210,6 +317,7 @@ summary(pr9.1.2)
 ```{r}
 plot(pr9.1)
 ```
+
 
 
 ```{r}
