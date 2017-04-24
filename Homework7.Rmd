@@ -63,6 +63,19 @@ with(pipeline, dataEllipse(Lab, Field),
      levels=levs - 1/n, xlim=c(-50, 200), ylim=c(-50, 120))
 ```
 
+```{r}
+residualPlots(labfield)
+```
+
+The plot suggests non-constant variance since the curvature of the fitted values versus the residuals is quadratic.
+
+```{r}
+ncvTest(labfield)
+```
+There is a lot p-value
+This means that the model is non-constant
+
+
 
 
 # Problem 9.8
