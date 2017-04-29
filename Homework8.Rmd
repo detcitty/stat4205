@@ -2,10 +2,116 @@
 title: "Homework8"
 author: "Devin Etcitty"
 date: "April 29, 2017"
-output: pdf_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+```{r}
+library(alr4)
+library(ggplot2)
+```
+
+## Problem 9.18
+
+```{r}
+head(cloud)
+```
+
+
+```{r}
+plot(cloud)
+```
+
+```{r}
+ggplot(cloud, aes(A)) +
+  geom_bar()
+```
+
+
+
+```{r}
+ggplot(cloud, aes(D, Rain)) +
+  geom_point() +
+  geom_smooth()
+```
+
+
+```{r}
+ggplot(cloud, aes(x=S, y=Rain)) +
+  geom_point() +
+  geom_smooth()
+```
+
+```{r}
+ggplot(cloud, aes(x=log(S), y=Rain)) +
+  geom_point() +
+  geom_smooth()
+```
+
+```{r}
+ggplot(cloud, aes(x=log(S), y=log(Rain))) +
+  geom_point() +
+  geom_smooth()
+```
+
+```{r}
+ggplot(cloud, aes(x=C, y=Rain)) +
+  geom_point() +
+  geom_smooth()
+```
+```{r}
+ggplot(cloud, aes(x=C, y=log(Rain) )) +
+  geom_point() +
+  geom_smooth()
+```
+
+```{r}
+ggplot(cloud, aes(x=log(C), y=log(Rain))) +
+  geom_point() +
+  geom_smooth()
+```
+
+```{r}
+ggplot(cloud, aes(x=P, y=Rain)) +
+  geom_point() +
+  geom_smooth()
+```
+
+```{r}
+ggplot(cloud, aes(x=P, y=log(Rain))) +
+  geom_point() +
+  geom_smooth()
+```
+
+```{r}
+ggplot(cloud, aes(x=log(P), y=Rain)) +
+  geom_point() +
+  geom_smooth()
+```
+
+```{r}
+ggplot(cloud, aes(E)) +
+  geom_bar()
+```
+
+
+
+
+### Note
+### use the methods of Ch. 10 to suggest a "best" model)
+
+
+
+
+## Problem 10.3
+
+
+
+## Problem 10.5
+
 
