@@ -2,7 +2,9 @@
 title: "Homework7"
 author: "Devin Etcitty"
 date: "4/18/2017"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -340,7 +342,4 @@ fitted <- pr9.1$fitted.values
 plot(fitted, resid)
 ```
 
-```{r}
-residualPlots()
-```
 
