@@ -22,6 +22,11 @@ library(ggplot2)
 head(cloud)
 ```
 
+```{r}
+cloud$A <- as.factor(cloud$A)
+```
+
+
 
 ```{r}
 plot(cloud)
@@ -40,7 +45,19 @@ ggplot(cloud, aes(D, Rain)) +
   geom_smooth()
 ```
 
+```{r}
+ms.1 <- lm(Rain ~ D, data = cloud)
+summary(ms.1)
+```
 
+```{r}
+plot(ms.1)
+```
+
+
+```{r}
+residualPlots(ms.1)
+```
 ```{r}
 ggplot(cloud, aes(x=S, y=Rain)) +
   geom_point() +
@@ -48,10 +65,46 @@ ggplot(cloud, aes(x=S, y=Rain)) +
 ```
 
 ```{r}
+ms.2 <- lm(Rain ~ S, data=cloud)
+summary(ms.2)
+```
+
+
+```{r}
+plot(ms.2)
+```
+
+```{r}
+residualPlots(ms.2)
+```
+
+
+
+```{r}
+ms.3 <- lm(Rain ~ log(S), data=cloud)
+summary(ms.3)
+```
+
+```{r}
 ggplot(cloud, aes(x=log(S), y=Rain)) +
   geom_point() +
   geom_smooth()
 ```
+
+
+```{r}
+plot(ms.3)
+```
+
+```{r}
+residualPlots(ms.3)
+```
+
+
+
+
+
+
 
 ```{r}
 ggplot(cloud, aes(x=log(S), y=log(Rain))) +
@@ -101,6 +154,15 @@ ggplot(cloud, aes(E)) +
 
 
 
+
+```{r}
+m1 <- lm(Rain ~ A, data=cloud)
+summary(m1)
+```
+
+```{r}
+plot(m1)
+```
 
 ### Note
 ### use the methods of Ch. 10 to suggest a "best" model)
