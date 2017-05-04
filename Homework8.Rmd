@@ -109,9 +109,50 @@ ggplot(cloud, aes(E)) +
 
 
 ## Problem 10.3
+<!-----  Use vif ------> 
+
+```{r}
+mantel
+```
+
+
+```{r}
+plot(mantel)
+```
+
+
+```{r}
+model <- lm(Y ~ X1 + X2 + X3, data=mantel)
+summary(model)
+```
+```{r}
+v <- vif(model)
+rsqrd <- (v - 1) / v
+rsqrd
+```
+
+```{r}
+forward <- lm(Y ~ 1, data=mantel)
+step(forward, scope = ~ X1 + X2 + X3, direction="forward")
+
+
+```
+
+```{r}
+backward = lm(Y ~ X1 + X2 + X3, data=mantel)
+step(backward, scope = ~ 1, direction="backward")
+```
 
 
 
 ## Problem 10.5
+
+```{r}
+dwaste
+```
+
+```{r}
+plot(dwaste)
+```
 
 
