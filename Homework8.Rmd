@@ -102,6 +102,9 @@ ggplot(cloud, aes(E)) +
 
 
 
+
+
+
 ### Note
 ### use the methods of Ch. 10 to suggest a "best" model)
 
