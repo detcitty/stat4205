@@ -15,16 +15,114 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r message = FALSE, warning = FALSE}
 library(alr4)
+library(tidyverse)
 ```
 
 #### Problem 3.3
 <!--- Berkeley Guidance Study --->
 ```{r}
-attach(BGSgirls)
-
-detach(BGSgirls)
+plot(BGSgirls)
+```
+```{r}
+matrix_girls <- BGSgirls %>%
+  select(HT2, HT9, WT2, WT9, ST9, BMI18)
+  
 ```
 
+```{r}
+plot(matrix_girls)
+```
+
+
+
+With BMI18 as a reponse variable, it seems to have a horizontal linear relationship with the 5 other variables.
+However, the 5 other variables have an increasing linear relationship with one another. 
+
+```{r}
+round(cor(matrix_girls), 4)
+```
+
+For sample corrlations, BMI18 has low correlation coefficients with the other 5 variables (<0.55). The other variables have relatively high correlation correfficients, between the ranges of 0.4 and 0.73.
+
+
+```{r}
+round(var(matrix_girls), 4)
+
+```
+
+```{r}
+round(cov(matrix_girls), 4)
+```
+
+
+```{r}
+wt9 <- lm(BMI18 ~ WT9, data=matrix_girls)
+summary(wt9)
+```
+
+```{r}
+avPlots(wt9, id.n=0)
+```
+
+
+```{r}
+two_st <- lm(BMI18 ~ WT9 + ST9, data=matrix_girls)
+summary(two_st)
+```
+```{r}
+avPlots(two_st, id.n=0)
+```
+```{r}
+st9 <- lm(BMI18 ~ ST9, data=matrix_girls)
+summary(st9)
+```
+
+```{r}
+avPlots(st9, id.n=0)
+```
+
+```{r}
+ggplot(matrix_girls, aes(x=ST9, y=BMI18)) +
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+```{r}
+ggplot(matrix_girls, aes(x=WT9, y=BMI18)) +
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE)
+```
+```{r}
+ggplot(matrix_girls, aes(x=WT9, y=ST9)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+
+```
+
+
+
+##### Problem 3.3.3
+
+```{r}
+model <- lm(BMI18 ~ HT2 + WT2 + HT9 + WT9 + ST9, data=matrix_girls)
+summary(model)
+```
+
+
+```{r}
+avPlots(model, id.n=0)
+```
+
+```{r}
+rsqrd <- summary(model)$r.squared
+sigma_hat <- sigmaHat(model)
+```
+
+
+```{r}
+confint(model)
+
+```
 
 #### Problem 3.4
 <!--- Mean function --->
