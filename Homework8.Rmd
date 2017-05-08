@@ -280,6 +280,10 @@ summary(m1)
 plot(m1)
 ```
 
+=======
+
+
+
 ### Note
 ### use the methods of Ch. 10 to suggest a "best" model)
 
@@ -287,9 +291,135 @@ plot(m1)
 
 
 ## Problem 10.3
+<!-----  Use vif ------> 
+
+```{r}
+mantel
+```
+
+
+```{r}
+plot(mantel)
+```
+
+
+```{r}
+model <- lm(Y ~ X1 + X2 + X3, data=mantel)
+summary(model)
+```
+```{r}
+v <- vif(model)
+rsqrd <- (v - 1) / v
+rsqrd
+```
+
+```{r}
+forward <- lm(Y ~ 1, data=mantel)
+step(forward, scope = ~ X1 + X2 + X3, direction="forward")
+
+
+```
+
+```{r}
+backward = lm(Y ~ X1 + X2 + X3, data=mantel)
+step(backward, scope = ~ 1, direction="backward")
+```
 
 
 
 ## Problem 10.5
 
+```{r}
+dwaste
+```
+
+```{r}
+plot(dwaste)
+```
+
+```{r}
+m0 <- lm(O2UP ~ . - Day, data= dwaste)
+summary(m0)
+```
+```{r}
+invResPlot(m0)
+```
+
+```{r}
+summary(powerTransform(m0))
+```
+
+```{r}
+boxCox(m0)
+```
+
+
+
+```{r}
+v <- vif(m0)
+rsqrd <- (v - 1) / v
+rsqrd
+
+```
+
+
+```{r}
+#AIC(m0)
+
+stopifnot(all.equal(AIC(m0),
+                         AIC(logLik(m0))))
+```
+
+```{r}
+BIC(m0)
+```
+
+
+```{r}
+step(m0, scope = ~ 1, direction = "backward")
+```
+```{r}
+m1 <- lm(O2UP ~ 1, data=dwaste)
+step(m1, scope = ~ BOD + TKN + TS + TVS + COD , direction = "forward")
+```
+
+```{r}
+invResPlot(m1)
+```
+
+
+```{r}
+
+mo.1 <- lm(O2UP ~ COD , data=dwaste)
+AIC(mo.1)
+BIC(mo.1)
+```
+
+
+```{r}
+mo.2 <- lm(log(O2UP) ~ COD, data=dwaste)
+AIC(mo.2)
+BIC(mo.2)
+```
+
+```{r}
+AIC(m0, mo.1)
+```
+
+```{r}
+BIC(m0, mo.1)
+```
+
+```{r}
+invResPlot(lm(O2UP ~ COD , data=dwaste))
+```
+
+
+```{r}
+summary(powerTransform(mo.1))
+```
+
+```{r}
+boxCox(mo.1)
+```
 
