@@ -104,7 +104,10 @@ residualPlots(ms.3)
 
 
 
-
+```{r}
+ms.4 <- lm(log(Rain) ~ log(S), data=cloud)
+summary(ms.4)
+```
 
 ```{r}
 ggplot(cloud, aes(x=log(S), y=log(Rain))) +
@@ -112,16 +115,76 @@ ggplot(cloud, aes(x=log(S), y=log(Rain))) +
   geom_smooth()
 ```
 
+
+
+```{r}
+plot(ms.4)
+```
+
+```{r}
+residualPlots(ms.4)
+```
+
+
+
+```{r}
+mc.1 <- lm(Rain ~ C, data=cloud)
+summary(mc.1)
+```
+
 ```{r}
 ggplot(cloud, aes(x=C, y=Rain)) +
   geom_point() +
   geom_smooth()
 ```
+
+
+```{r}
+plot(mc.1)
+```
+
+
+```{r}
+residualPlots(mc.1)
+```
+
+
+
+
+
+
+```{r}
+mc.2 <- lm(log(Rain) ~ C, data=cloud)
+summary(mc.2)
+```
+
+
 ```{r}
 ggplot(cloud, aes(x=C, y=log(Rain) )) +
   geom_point() +
   geom_smooth()
 ```
+
+
+```{r}
+plot(mc.2)
+```
+
+
+```{r}
+residualPlots(mc.2)
+```
+
+
+
+
+```{r}
+mc.3 <- lm(log(Rain) ~ log(C), data=cloud)
+summary(mc.3)
+```
+
+
+
 
 ```{r}
 ggplot(cloud, aes(x=log(C), y=log(Rain))) +
@@ -129,11 +192,38 @@ ggplot(cloud, aes(x=log(C), y=log(Rain))) +
   geom_smooth()
 ```
 
+
+```{r}
+plot(mc.3)
+```
+
+
+```{r}
+residualPlots(mc.3)
+```
+
+
+
+```{r}
+mp.1 <- lm(Rain ~ P, data=cloud)
+summary(mp.1)
+```
+
+
 ```{r}
 ggplot(cloud, aes(x=P, y=Rain)) +
   geom_point() +
   geom_smooth()
 ```
+
+
+
+
+```{r}
+mp.2 <- lm(log(Rain) ~ P, data=cloud)
+summary(mp.2)
+```
+
 
 ```{r}
 ggplot(cloud, aes(x=P, y=log(Rain))) +
@@ -141,11 +231,34 @@ ggplot(cloud, aes(x=P, y=log(Rain))) +
   geom_smooth()
 ```
 
+
+
+```{r}
+mp.3 <- lm(log(Rain) ~ log(P), data=cloud)
+summary(mp.3)
+```
+
+
+
+```{r}
+mp.4 <- lm(Rain ~ log(C), data=cloud)
+summary(mp.3)
+```
+
+
 ```{r}
 ggplot(cloud, aes(x=log(P), y=Rain)) +
   geom_point() +
   geom_smooth()
 ```
+
+
+
+```{r}
+me.1 <- lm(Rain ~ E, data=cloud)
+summary(mc.3)
+```
+
 
 ```{r}
 ggplot(cloud, aes(E)) +
@@ -159,6 +272,9 @@ ggplot(cloud, aes(E)) +
 m1 <- lm(Rain ~ A, data=cloud)
 summary(m1)
 ```
+
+
+
 
 ```{r}
 plot(m1)
